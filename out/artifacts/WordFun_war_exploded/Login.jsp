@@ -15,23 +15,24 @@
 <body>
 <div id="myForm">
     <p class="title">用户注册</p>
-    <div class="form_style" v-for="item in items">
+    <div class="form_style" v-for="(item,index) in items">
         <p>{{item.title}}</p>
         <div class="input_div">
             <input type="text" class="inputStyle" v-bind:style="{border:item.border}"
                     v-on:blur="inputBlur(item)" v-on:focus="inputFocus(item)"
-                   v-model="item.value"
+                   v-model="item.value" v-autofocus="item.isFocus"
                    >
             <p v-bind:style="{color:item.hintcolor}">{{item.hint}}</p>
         </div>
     </div>
-    <button class="mybutton">提交</button>
+    <button class="mybutton" @click="submitForm">提交</button>
 </div>
 <script>
     var myForm=new Vue({
         el:"#myForm",
         data:{
             items:[],
+            clicked:false
         },
         created:function () {
             var item1={
@@ -115,6 +116,21 @@
                         }else {
                             this.changeItem(item,"请验证上次的输入");
                         }
+                        break;
+                    case 'email':
+                        if(item.valuePassed){
+                            this.changeItem(item,"邮箱格式正确");
+                        }else {
+                            this.changeItem(item,"请输入正确的邮箱格式");
+                        }
+                        break;
+                    case 'telephone':
+                        if(item.valuePassed){
+                            this.changeItem(item,"手机格式正确");
+                        }else {
+                            this.changeItem(item,"请输入正确的手机号码");
+                        }
+                        break;
                 }
             },
             inputBlur:function (item) {
@@ -159,6 +175,23 @@
                             }
                         }
                         break;
+                    case 'email':
+                        if(this.IsEmail(item.value)){
+                            item.valuePassed=true;
+                            this.changeItem(item,"邮箱格式正确");
+                        }else {
+                            item.valuePassed=false;
+                            this.changeItem(item,"请输入正确的邮箱格式");
+                        }
+                        break;
+                    case 'telephone':
+                        if(this.IsPhone(item.value)){
+                            item.valuePassed=true;
+                            this.changeItem(item,"手机号码格式正确");
+                        }else {
+                            item.valuePassed=false;
+                            this.changeItem(item,"手机号码格式不正确");
+                        }
                 }
             },
             getByteLen:function (val) {
@@ -200,12 +233,33 @@
                         item.hintcolor="red";
                     }
                 }
+            },
+            /*校验邮件地址是否合法 */
+            IsEmail:function (str) {
+                   var reg=/^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(\.[com|cn])/;
+                   return reg.test(str);
+            },
+            IsPhone:function (str) {
+                var reg=/^[1-9][0-9]{10}/;
+                return reg.test(str);
+            },
+            submitForm:function () {
+               for(var i=0;i<this.items.length;i++){
+                   var item=this.items[i];
+                   if(!item.valuePassed) {
+                       item.isFocus=true;
+                       break;
+                   }
+               }
             }
         },
-        directives:{
-            focus:{
-                inserted:function (el) {
-                    el.focus();
+        directives: {
+            autofocus: {
+                // 指令的定义
+                componentUpdated: function (el,binding) {
+                    if(binding.value){
+                        el.focus();
+                    }
                 }
             }
         }

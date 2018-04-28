@@ -15,12 +15,12 @@
 <body>
 <div id="myForm">
     <p class="title">用户注册</p>
-    <div class="form_style" v-for="item in items">
+    <div class="form_style" v-for="(item,index) in items">
         <p>{{item.title}}</p>
         <div class="input_div">
             <input type="text" class="inputStyle" v-bind:style="{border:item.border}"
                     v-on:blur="inputBlur(item)" v-on:focus="inputFocus(item)"
-                   v-model="item.value"
+                   v-model="item.value" v-autofocus="item.isFocus"
                    >
             <p v-bind:style="{color:item.hintcolor}">{{item.hint}}</p>
         </div>
@@ -32,6 +32,7 @@
         el:"#myForm",
         data:{
             items:[],
+            clicked:false
         },
         created:function () {
             var item1={
@@ -242,19 +243,23 @@
                 var reg=/^[1-9][0-9]{10}/;
                 return reg.test(str);
             },
-            submitForm:function (items) {
+            submitForm:function () {
                for(var i=0;i<this.items.length;i++){
                    var item=this.items[i];
-                   if(!item.valuePassed){
-
+                   if(!item.valuePassed) {
+                       item.isFocus=true;
+                       break;
                    }
                }
             }
         },
-        directives:{
-            focus:{
-                inserted:function (el) {
-                    el.focus();
+        directives: {
+            autofocus: {
+                // 指令的定义
+                componentUpdated: function (el,binding) {
+                    if(binding.value){
+                        el.focus();
+                    }
                 }
             }
         }
