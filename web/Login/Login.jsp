@@ -13,7 +13,7 @@
     <link href="LoginStyle.css" type="text/css" rel="stylesheet">
 </head>
 <body>
-<div id="myForm">
+<form id="myForm" method="post" action="/HelloWorld">
     <p class="title">用户注册</p>
     <div class="form_style" v-for="(item,index) in items">
         <p>{{item.title}}</p>
@@ -21,12 +21,13 @@
             <input type="text" class="inputStyle" v-bind:style="{border:item.border}"
                     v-on:blur="inputBlur(item)" v-on:focus="inputFocus(item)"
                    v-model="item.value" v-autofocus="item.isFocus"
+                   v-bind:name="item.name"
                    >
             <p v-bind:style="{color:item.hintcolor}">{{item.hint}}</p>
         </div>
     </div>
     <button class="mybutton" @click="submitForm">提交</button>
-</div>
+</form>
 <script>
     var myForm=new Vue({
         el:"#myForm",
@@ -241,15 +242,21 @@
             },
             IsPhone:function (str) {
                 var reg=/^[1-9][0-9]{10}/;
-                return reg.test(str);
+                return reg.test(str)&&(str.length==11);
             },
-            submitForm:function () {
+            submitForm:function (e) {
+                e.preventDefault();
                for(var i=0;i<this.items.length;i++){
                    var item=this.items[i];
                    if(!item.valuePassed) {
                        item.isFocus=true;
                        break;
                    }
+               }
+               if(i==this.items.length){
+                   console.log("suc");
+                   this.$el.submit();
+
                }
             }
         },
