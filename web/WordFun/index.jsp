@@ -21,7 +21,7 @@
 </head>
 <body>
 <div class="navbar">
-    <p class="myTitle">WordFun</p>
+    <p class="myTitle"><a href="index.jsp">WordFun</a></p>
     <div class="nav-button-group">
         <button class="nav-button">登陆</button>
         <button class="nav-button">注册</button>
@@ -31,6 +31,28 @@
     <div class="sidebar"></div>
     <div class="main-content"></div>
 </div>
-</body>
 
+<div class="lg-model">
+    <div class="lg-dialog">
+        <div class="lg-dialog-nav">
+
+        </div>
+        <form class="lg-dialog-form" method="post">
+            <div class="form-item">
+                <img src="/icons/user.svg"/>
+                <input name="username" type="text" style="position: absolute">
+            </div>
+            <div class="form-item">
+                <img src="/icons/lock.svg"/>
+                <input name="password" type="text" style="position: absolute">
+                <img src="/icons/eye.svg" class="rightimg">
+            </div>
+            <input type="submit" value="登陆">
+        </form>
+    </div>
+</div>
+</body>
+<script>
+
+</script>
 </html>
