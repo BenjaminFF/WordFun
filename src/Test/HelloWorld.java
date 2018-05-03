@@ -31,7 +31,23 @@ public class HelloWorld extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("text/html");
         PrintWriter out = resp.getWriter();
-        out.println("<h1>" + req.getParameter("username").toString() + "</h1>");
+        if(req.getParameter("username").toString().length()!=0){
+            try {
+                out.write("true");
+            }catch (Exception e){
+                e.printStackTrace();
+            }finally {
+                out.close();
+            }
+        }else {
+            try {
+                out.write("false");
+            }catch (Exception e){
+                e.printStackTrace();
+            }finally {
+                out.close();
+            }
+        }
     }
 
     @Override
