@@ -7,9 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ba590a7a-aa6d-40d3-a308-cdddd1f56cb8" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/web/icons/add.svg" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/web/WordFun/WordSet.jsp" afterPath="$PROJECT_DIR$/web/WordFun/WordSet.jsp" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -502,7 +500,7 @@
       <workItem from="1525336851299" duration="3067000" />
       <workItem from="1525346389764" duration="5036000" />
       <workItem from="1525393598649" duration="11262000" />
-      <workItem from="1525415573247" duration="5150000" />
+      <workItem from="1525415573247" duration="5176000" />
     </task>
     <task id="LOCAL-00001" summary="submit form compeleted except button">
       <created>1524816246905</created>
@@ -553,11 +551,18 @@
       <option name="project" value="LOCAL" />
       <updated>1525416932624</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="floatbutton completed">
+      <created>1525420749002</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1525420749002</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="128986000" />
+    <option name="totallyTimeSpent" value="129012000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -610,7 +615,8 @@
     <MESSAGE value="gw index" />
     <MESSAGE value="dialog completed" />
     <MESSAGE value="resposive wordset completed" />
-    <option name="LAST_COMMIT_MESSAGE" value="resposive wordset completed" />
+    <MESSAGE value="floatbutton completed" />
+    <option name="LAST_COMMIT_MESSAGE" value="floatbutton completed" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
