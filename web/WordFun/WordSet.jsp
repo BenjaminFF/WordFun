@@ -37,12 +37,38 @@
         .item-style{
            width: 100%;
             height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            background-color: lightcyan;
         }
-        .floatbutton{
-            width: 3em;
-            height: 3em;
-            position: fixed;
 
+        .item-title{
+            font-size: 3em;
+        }
+
+        .item-count{
+            font-size: 2.5em;
+            margin-top: 0.1em;
+        }
+
+        .item-date{
+            font-size: 1em;
+            margin-top: 2em;
+        }
+
+        .floatbutton{
+            width: 2em;
+            height: 2em;
+            position:fixed;
+            right: 0;
+            bottom: 0;
+            margin: 1em;
+            padding: 1em;
+            border-radius: 50%;
+            background-color: darkkhaki;
+            border: 3px darkkhaki solid;
         }
     </style>
 </head>
@@ -52,11 +78,13 @@
             v-bind:style="{'--row':row,'--column':column,
             'grid-row-gap':rowgap+'px','margin':margin+'px'
             ,'--itemsize':itemsize+'px','grid-column-gap':columngap+'px'}">
-           <div class="item-style" v-for="item in items" v-bind:style="{background:item.background}">
-
+           <div class="item-style" v-for="item in items">
+               <p class="item-title">{{item.title}}</p>
+               <p class="item-count">{{item.count}}个</p>
+               <p class="item-date">{{item.date}}</p>
            </div>
        </div>
-       <button class="floatbutton"></button>
+       <img src="/icons/add.svg" class="floatbutton"/>
    </div>
 </body>
 <script>
@@ -78,36 +106,26 @@
                 title:"Holly",
                 count:12,
                 date:"2018年4月12日",
-                background:"blue",
-                textcolor:"white"
             };
             var item2={
                 title:"Holly",
                 count:12,
                 date:"2018年4月12日",
-                background:"black",
-                textcolor:"white"
             };
             var item3={
                 title:"Holly",
                 count:12,
                 date:"2018年4月12日",
-                background:"red",
-                textcolor:"white"
             };
             var item4={
                 title:"Holly",
                 count:12,
                 date:"2018年4月12日",
-                background:"green",
-                textcolor:"white"
             };
             var item5={
                 title:"Holly",
                 count:12,
                 date:"2018年4月12日",
-                background:"green",
-                textcolor:"white"
             };
             this.items.push(item1);
             this.items.push(item2);
