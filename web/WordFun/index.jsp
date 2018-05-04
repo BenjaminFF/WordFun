@@ -26,11 +26,17 @@
         <button class="nav-button">注册</button>
     </div>
 </div>
-<div class="main-section">
+<div class="main-section" id="main">
     <div class="sidebar" id="sidebar">
-
+        <div v-for="item in items" class="sidebar-item" v-bind:class="{itemChosen:item.isChosen}"
+             @click="switchItem(item)">
+            <p v-bind:style="{color:item.titleColor}">{{item.title}}</p>
+        </div>
     </div>
-    <div class="main-content"></div>
+    <div class="main-content">
+        <iframe v-bind:src="curFrameSrc" frameborder="0"
+                class="main-frame"></iframe>
+    </div>
 </div>
 
 <div class="lg-model" id="lg-dialog" v-if="isShow">
@@ -70,8 +76,11 @@
     var dialog=new Vue({
         el:"#lg-dialog",
         data:{
-            isShow:true,
+            isShow:false,
             user:[]
+        },
+        ready:function () {
+            window.addEventListener('resize', this.handleResize);
         },
         created:function () {
             var user={
@@ -90,6 +99,9 @@
         methods:{
             dismiss:function () {
                 this.isShow=false;
+            },
+            handleResize:function () {
+               alert("gg")
             },
             submit:function (event) {
                 event.preventDefault();
@@ -110,6 +122,7 @@
                     xmlhttp.send("username="+user.username+"&password="+user.password);
                     xmlhttp.onreadystatechange=function (ev) {
                         if(xmlhttp.readyState==4&&xmlhttp.status==200){
+                            console.info(xmlhttp.responseText);
                             if(xmlhttp.responseText=="noUser"){
                                 user.namelog="没有该用户";
                                 user.showNameLog=true;
@@ -117,8 +130,11 @@
                                 if(xmlhttp.responseText=="false"){
                                     user.pwdlog="密码错误";
                                     user.showPwdLog=true;
-                                }else {
+                                }else if(xmlhttp.responseText=="true"){
                                     console.info("success");
+                                }else {
+                                    user.pwdlog="未知错误";
+                                    user.showPwdLog=true;
                                 }
                             }
                         }
@@ -139,6 +155,71 @@
                 }
             }
         }
+    });
+
+    var mainsection=new Vue({
+       el:"#main",
+       data:{
+           items:[],
+           curFrameSrc:"WordSet.jsp"
+       },
+       created:function () {
+           var item1={
+               title:"你的单词集",
+               iconsrc:"",
+               titleColor:"white",
+               framesrc:"WordSet.jsp",
+               isChosen:false
+           };
+           var item2={
+               title:"单词矩阵",
+               iconsrc:"",
+               titleColor:"white",
+               framesrc:"WordMatrix.jsp",
+               isChosen:false
+           };
+           var item3={
+               title:"吊小人",
+               iconsrc:"",
+               titleColor:"white",
+               framesrc:"HangMan.jsp",
+               isChosen:false
+           };
+           var item4={
+               title:"乾坤大挪移",
+               iconsrc:"",
+               titleColor:"white",
+               framesrc:"Scramble.jsp",
+               isChosen:false
+           };
+           var item5={
+               title:"单词接龙",
+               iconsrc:"",
+               titleColor:"white",
+               framesrc:"WordChain.jsp",
+               isChosen:false
+           };
+           this.items.push(item1);
+           this.items.push(item2);
+           this.items.push(item3);
+           this.items.push(item4);
+           this.items.push(item5);
+       },
+       methods:{
+           switchItem:function (item) {
+               if(item.isChosen){
+                   return;
+               }
+               for(var i=0;i<this.items.length;i++){
+                   if(this.items[i].isChosen){
+                       this.items[i].isChosen=false;
+                   }
+               }
+               item.isChosen=true;
+               this.curFrameSrc=item.framesrc;
+               console.info(item.framesrc);
+           }
+       }
     });
 </script>
 </html>
