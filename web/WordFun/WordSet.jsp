@@ -132,12 +132,6 @@
             this.items.push(item3);
             this.items.push(item4);
             this.items.push(item5);
-            this.items.push(item5);
-            this.items.push(item5);
-            this.items.push(item5);
-            this.items.push(item5);
-            this.items.push(item5);
-            this.items.push(item5);
 
             this.updateItems();
             console.info(this.column);
