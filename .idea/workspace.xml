@@ -7,10 +7,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ba590a7a-aa6d-40d3-a308-cdddd1f56cb8" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/web/WordFun/WordEdit.jsp" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/web/WordFun/jquery.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/Test/WordSetServlet.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/pictures/bg1.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/pictures/bg2.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/pictures/bg3.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/pictures/bg4.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/web/pictures/bg5.jpg" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/web/WEB-INF/web.xml" />
+      <change beforePath="$PROJECT_DIR$/web/WordFun/WordEdit.jsp" afterPath="$PROJECT_DIR$/web/WordFun/WordEdit.jsp" />
       <change beforePath="$PROJECT_DIR$/web/WordFun/WordSet.jsp" afterPath="$PROJECT_DIR$/web/WordFun/WordSet.jsp" />
+      <change beforePath="$PROJECT_DIR$/web/WordFun/gwjs.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/web/WordFun/gwstyle.css" afterPath="$PROJECT_DIR$/web/WordFun/gwstyle.css" />
+      <change beforePath="$PROJECT_DIR$/web/WordFun/index.jsp" afterPath="$PROJECT_DIR$/web/WordFun/index.jsp" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -28,11 +37,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="WordSet.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/WordFun/WordSet.jsp">
+      <file leaf-file-name="index.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/WordFun/index.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="37">
-              <caret line="10" column="26" lean-forward="false" selection-start-line="10" selection-start-column="26" selection-end-line="10" selection-end-column="26" />
+            <state relative-caret-position="8362">
+              <caret line="226" column="39" lean-forward="false" selection-start-line="226" selection-start-column="39" selection-end-line="226" selection-end-column="39" />
               <folding />
             </state>
           </provider>
@@ -41,28 +50,18 @@
       <file leaf-file-name="WordEdit.jsp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/WordFun/WordEdit.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="287">
-              <caret line="80" column="44" lean-forward="false" selection-start-line="80" selection-start-column="44" selection-end-line="80" selection-end-column="44" />
+            <state relative-caret-position="361">
+              <caret line="189" column="29" lean-forward="true" selection-start-line="189" selection-start-column="29" selection-end-line="189" selection-end-column="29" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/WordFun/index.jsp">
+      <file leaf-file-name="WordSetServlet.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Test/WordSetServlet.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="407">
-              <caret line="16" column="24" lean-forward="true" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="gwstyle.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/WordFun/gwstyle.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3145">
-              <caret line="85" column="5" lean-forward="true" selection-start-line="85" selection-start-column="5" selection-end-line="85" selection-end-column="5" />
+            <state relative-caret-position="777">
+              <caret line="28" column="55" lean-forward="false" selection-start-line="28" selection-start-column="55" selection-end-line="28" selection-end-column="55" />
               <folding />
             </state>
           </provider>
@@ -75,9 +74,9 @@
       <list>
         <option value="JavaFXApplication" />
         <option value="CSS File" />
-        <option value="Class" />
         <option value="Jsp File" />
         <option value="JavaScript File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -107,17 +106,19 @@
         <option value="$PROJECT_DIR$/web/icons/hide.svg" />
         <option value="$PROJECT_DIR$/src/Test/HelloWorld.java" />
         <option value="$PROJECT_DIR$/src/Test/User.java" />
-        <option value="$PROJECT_DIR$/web/WEB-INF/web.xml" />
         <option value="$PROJECT_DIR$/web/WordFun/WordChain.jsp" />
         <option value="$PROJECT_DIR$/web/WordFun/WordMatrix.jsp" />
         <option value="$PROJECT_DIR$/web/WordFun/Scramble.jsp" />
         <option value="$PROJECT_DIR$/web/WordFun/HangMan.jsp" />
-        <option value="$PROJECT_DIR$/src/Test/DbUtil.java" />
         <option value="$PROJECT_DIR$/src/Test/LoginServlet.java" />
-        <option value="$PROJECT_DIR$/web/WordFun/gwstyle.css" />
-        <option value="$PROJECT_DIR$/web/WordFun/index.jsp" />
-        <option value="$PROJECT_DIR$/web/WordFun/WordSet.jsp" />
         <option value="$PROJECT_DIR$/web/WordFun/jquery.js" />
+        <option value="$PROJECT_DIR$/src/Test/CreateWordSetServlet.java" />
+        <option value="$PROJECT_DIR$/web/WEB-INF/web.xml" />
+        <option value="$PROJECT_DIR$/web/WordFun/WordSet.jsp" />
+        <option value="$PROJECT_DIR$/web/WordFun/index.jsp" />
+        <option value="$PROJECT_DIR$/web/WordFun/gwstyle.css" />
+        <option value="$PROJECT_DIR$/src/Test/DbUtil.java" />
+        <option value="$PROJECT_DIR$/src/Test/WordSetServlet.java" />
         <option value="$PROJECT_DIR$/web/WordFun/WordEdit.jsp" />
       </list>
     </option>
@@ -131,8 +132,8 @@
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
     <option name="FILTER_WARNINGS" value="false" />
-    <option name="FILTER_INFO" value="true" />
-    <option name="FILTER_DEBUG" value="true" />
+    <option name="FILTER_INFO" value="false" />
+    <option name="FILTER_DEBUG" value="false" />
     <option name="CUSTOM_FILTER" />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
@@ -158,8 +159,6 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -193,7 +192,28 @@
               <item name="WordFun" type="b2602c69:ProjectViewProjectNode" />
               <item name="WordFun" type="462c0819:PsiDirectoryNode" />
               <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="pictures" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="WordFun" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WordFun" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
               <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="WordFun" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WordFun" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+              <item name="classes" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="WordFun" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WordFun" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+              <item name="classes" type="462c0819:PsiDirectoryNode" />
+              <item name="Test" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="WordFun" type="b2602c69:ProjectViewProjectNode" />
@@ -209,6 +229,8 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -222,18 +244,18 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/web/WEB-INF/lib/mysql-connector-java-8.0.11.jar" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\benja\IdeaProjects\WordFun\web\icons" />
-      <recent name="C:\Users\benja\IdeaProjects\WordFun\web\WEB-INF\lib" />
-      <recent name="C:\Users\benja\IdeaProjects\WordFun\web\GuessWord" />
-      <recent name="C:\Users\benja\IdeaProjects\WordFun\web\WEB-INF" />
+    <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\benja\IdeaProjects\WordFun\web\Login" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="Test" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\benja\IdeaProjects\WordFun\web\Login" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\benja\IdeaProjects\WordFun\web\pictures" />
+      <recent name="C:\Users\benja\IdeaProjects\WordFun\web\icons" />
+      <recent name="C:\Users\benja\IdeaProjects\WordFun\web\WEB-INF\lib" />
+      <recent name="C:\Users\benja\IdeaProjects\WordFun\web\GuessWord" />
+      <recent name="C:\Users\benja\IdeaProjects\WordFun\web\WEB-INF" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -540,7 +562,15 @@
       <workItem from="1525569867688" duration="5454000" />
       <workItem from="1525604230386" duration="6153000" />
       <workItem from="1525652189940" duration="5401000" />
-      <workItem from="1525658854301" duration="4992000" />
+      <workItem from="1525658854301" duration="5126000" />
+      <workItem from="1525675676404" duration="7802000" />
+      <workItem from="1525691054187" duration="5487000" />
+      <workItem from="1525738738170" duration="5310000" />
+      <workItem from="1525745279938" duration="9863000" />
+      <workItem from="1525760980908" duration="4304000" />
+      <workItem from="1525775931872" duration="9000" />
+      <workItem from="1525778208201" duration="4438000" />
+      <workItem from="1525847467981" duration="5358000" />
     </task>
     <task id="LOCAL-00001" summary="submit form compeleted except button">
       <created>1524816246905</created>
@@ -605,11 +635,18 @@
       <option name="project" value="LOCAL" />
       <updated>1525420768754</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="WordEdit 89% completed">
+      <created>1525664254546</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1525664254546</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="151189000" />
+    <option name="totallyTimeSpent" value="193894000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -635,13 +672,13 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2729332" sideWeight="0.48766094" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295583" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2918455" sideWeight="0.4813084" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28379828" sideWeight="0.5155763" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32671675" sideWeight="0.47663552" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30472103" sideWeight="0.5233645" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2918455" sideWeight="0.5186916" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2918455" sideWeight="0.5175538" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -663,7 +700,8 @@
     <MESSAGE value="dialog completed" />
     <MESSAGE value="resposive wordset completed" />
     <MESSAGE value="floatbutton completed" />
-    <option name="LAST_COMMIT_MESSAGE" value="floatbutton completed" />
+    <MESSAGE value="WordEdit 89% completed" />
+    <option name="LAST_COMMIT_MESSAGE" value="WordEdit 89% completed" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -672,21 +710,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/web/Login/vue.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/Login/Login.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2738">
-          <caret line="74" column="30" lean-forward="true" selection-start-line="74" selection-start-column="30" selection-end-line="74" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/out/artifacts/WordFun_war_exploded/vue.js" />
     <entry file="file://$PROJECT_DIR$/out/artifacts/WordFun_war_exploded/LoginStyle.css" />
     <entry file="file://$PROJECT_DIR$/out/artifacts/WordFun_war_exploded/Login.jsp" />
     <entry file="jrt://C:/Program Files/Java/jdk-10!/jdk.javadoc/jdk/javadoc/internal/doclets/formats/html/resources/jquery/jquery-1.10.2.js">
@@ -813,13 +836,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/WordFun/gwjs.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk-10/lib/src.zip!/java.sql/java/sql/DriverManager.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2962">
@@ -828,13 +844,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/META-INF/MANIFEST.MF" />
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/classes/Test/LoginServlet.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-999">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/WEB-INF/classes/Test/HelloWorld.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="595">
@@ -851,20 +860,6 @@
     </entry>
     <entry file="jar://$PROJECT_DIR$/web/WEB-INF/lib/mysql-connector-java-8.0.11.jar!/META-INF/INDEX.LIST" />
     <entry file="jar://$PROJECT_DIR$/web/WEB-INF/lib/mysql-connector-java-8.0.11.jar!/META-INF/MANIFEST.MF" />
-    <entry file="file://$PROJECT_DIR$/src/Test/DbUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="111">
-          <caret line="16" column="50" lean-forward="true" selection-start-line="16" selection-start-column="50" selection-end-line="16" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Test/HelloWorld.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="369">
-          <caret line="37" column="36" lean-forward="false" selection-start-line="37" selection-start-column="36" selection-end-line="37" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/WordFun.iml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="111">
@@ -880,24 +875,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/web.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="333">
-          <caret line="9" column="14" lean-forward="false" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/icons/add.svg">
       <provider selected="true" editor-type-id="images">
         <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Test/LoginServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="37">
-          <caret line="30" column="39" lean-forward="false" selection-start-line="30" selection-start-column="39" selection-end-line="30" selection-end-column="39" />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/WordFun/HangMan.jsp">
@@ -912,38 +892,93 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="37">
           <caret line="10350" column="6" lean-forward="false" selection-start-line="10350" selection-start-column="6" selection-end-line="10350" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/web.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="32" column="22" lean-forward="true" selection-start-line="32" selection-start-column="22" selection-end-line="32" selection-end-column="22" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/WordFun/WordSet.jsp">
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/classes/Test/LoginServlet.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="37">
-          <caret line="10" column="26" lean-forward="false" selection-start-line="10" selection-start-column="26" selection-end-line="10" selection-end-column="26" />
-          <folding />
+        <state relative-caret-position="222">
+          <caret line="23" column="43" lean-forward="true" selection-start-line="23" selection-start-column="8" selection-end-line="23" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/classes/Test/WordSetServlet.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="296">
+          <caret line="27" column="24" lean-forward="true" selection-start-line="27" selection-start-column="24" selection-end-line="27" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Test/LoginServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="158">
+          <caret line="21" column="53" lean-forward="true" selection-start-line="21" selection-start-column="53" selection-end-line="21" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/pictures/bg1.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WordFun/gwjs.js" />
+    <entry file="file://$PROJECT_DIR$/src/Test/DbUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="28" column="5" lean-forward="false" selection-start-line="28" selection-start-column="5" selection-end-line="28" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Test/HelloWorld.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="961">
+          <caret line="53" column="25" lean-forward="true" selection-start-line="53" selection-start-column="25" selection-end-line="53" selection-end-column="25" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/WordFun/gwstyle.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3145">
-          <caret line="85" column="5" lean-forward="true" selection-start-line="85" selection-start-column="5" selection-end-line="85" selection-end-column="5" />
+        <state relative-caret-position="444">
+          <caret line="22" column="31" lean-forward="true" selection-start-line="22" selection-start-column="31" selection-end-line="22" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WordFun/WordSet.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4588">
+          <caret line="161" column="38" lean-forward="false" selection-start-line="161" selection-start-column="38" selection-end-line="161" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Test/WordSetServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="777">
+          <caret line="28" column="55" lean-forward="false" selection-start-line="28" selection-start-column="55" selection-end-line="28" selection-end-column="55" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/WordFun/index.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="407">
-          <caret line="16" column="24" lean-forward="true" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
+        <state relative-caret-position="8362">
+          <caret line="226" column="39" lean-forward="false" selection-start-line="226" selection-start-column="39" selection-end-line="226" selection-end-column="39" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/WordFun/WordEdit.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="287">
-          <caret line="80" column="44" lean-forward="false" selection-start-line="80" selection-start-column="44" selection-end-line="80" selection-end-column="44" />
+        <state relative-caret-position="361">
+          <caret line="189" column="29" lean-forward="true" selection-start-line="189" selection-start-column="29" selection-end-line="189" selection-end-column="29" />
           <folding />
         </state>
       </provider>

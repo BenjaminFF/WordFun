@@ -11,6 +11,7 @@
     <title>WordSet</title>
     <script src="vue.js">
     </script>
+    <script src="jquery.js"></script>
     <style type="text/css">
         html,body{
             width: 100%;
@@ -19,72 +20,80 @@
         body,div,p{
             margin: 0;
             padding: 0;
+            user-select: none;
         }
         #WordSet{
             width: 100%;
             height: 100%;
         }
-        .items-style{
-            --row:7;
-            --column:7;
-            --itemsize:15em;
-            width: fit-content;
-            height: fit-content;
-            display: grid;
-            grid-template-columns: repeat(var(--row),var(--itemsize));
-            grid-template-rows: repeat(var(--column),var(--itemsize));
+
+        .toolbar{
+            background-color: rgba(255, 255, 255, 0.71);
+            width: 100%;
+            height: 10em;
+            box-shadow: 0 0 1em gray;
         }
-        .item-style{
-           width: 100%;
-            height: 100%;
+
+        .main-content{
             display: flex;
-            align-items: center;
+            width: 100%;
+            height: auto;
+        }
+
+        .left-content{
+            flex: 5 0 0;
+        }
+
+        .item-container{
+            --row:6;
+            --column:6;
+            --itemsize:4em;
+            display: grid;
+            grid-gap: 1em;
             justify-content: center;
-            flex-direction: column;
-            background-color: lightcyan;
+            grid-template-columns: repeat(var(--column),var(--itemsize));
+            grid-template-rows: repeat(var(--row),var(--itemsize));
         }
 
-        .item-title{
-            font-size: 3em;
+        .item-style{
+            width: 100%;
+            height: 100%;
+            background-color: white;
+            box-shadow: 0 0 0.5em lightgray;
+            cursor: pointer;
         }
 
-        .item-count{
-            font-size: 2.5em;
-            margin-top: 0.1em;
+        .item-style:hover{
+            background-color: rgba(134, 227, 134, 0.41);
         }
 
-        .item-date{
-            font-size: 1em;
-            margin-top: 2em;
+        .right-content{
+            flex: 5 0 0;
         }
 
-        .floatbutton{
-            width: 2em;
-            height: 2em;
-            position:fixed;
-            right: 0;
-            bottom: 0;
-            margin: 1em;
-            padding: 1em;
-            border-radius: 50%;
-            background-color: darkkhaki;
-            border: 3px darkkhaki solid;
+        @media screen and (max-width: 768px){
+            .left-content{
+                width: 100%;
+            }
+            .right-content{
+                width: 0%;
+            }
         }
     </style>
 </head>
 <body>
    <div id="WordSet">
-       <div class="items-style"
-            v-bind:style="{'--row':row,'--column':column,
-            'grid-row-gap':rowgap+'px','margin':margin+'px'
-            ,'--itemsize':itemsize+'px','grid-column-gap':columngap+'px'}">
-           <div class="item-style" v-for="item in items">
-               <p class="item-title">{{item.title}}</p>
-               <p class="item-count">{{item.count}}个</p>
-               <p class="item-date">{{item.date}}</p>
+       <div class="toolbar"></div>
+       <div class="main-content">
+           <div class="left-content">
+               <div class="item-container"  v-bind:style="gridStyle">
+                   <div v-for="item in items" class="item-style">
+                   </div>
+               </div>
            </div>
+
+           <div class="right-content"></div>
        </div>
-       <img src="/icons/add.svg" class="floatbutton"/>
    </div>
 </body>
 <script>
@@ -92,14 +101,22 @@
         el:"#WordSet",
         data:{
             items:[],
-            row:5,
-            column:5,
-            itemsize:16*15,
-            rowgap:-1,
-            margin:32,
-            columngap:-1,
-            screenwidth:document.body.clientWidth,
-            rawItemSize:16*15
+            containerWidth:-1,
+            gridStyle:{
+                '--row':3,
+                '--column':3,
+                '--itemsize':16*10,
+                'margin':32,
+            },
+            rawItemsize:16*10,
+            userdata:{
+
+            }
+        },
+        mounted:function () {
+            window.addEventListener('resize', this.handleResize);
+            this.initItems();
+            console.info(this.containerWidth);
         },
         created:function () {
             var item1={
@@ -132,51 +149,35 @@
             this.items.push(item3);
             this.items.push(item4);
             this.items.push(item5);
-
-            this.updateItems();
-            console.info(this.column);
-        },
-        mounted:function () {
-            window.addEventListener('resize', this.handleResize);
+            this.items.push(item1);
+            this.items.push(item2);
+            this.items.push(item3);
+            this.items.push(item4);
+            this.items.push(item5);
         },
         beforeDestroy: function () {
             window.removeEventListener('resize', this.handleResize)
         },
         methods:{
             handleResize:function () {
-                this.screenwidth=document.body.clientWidth;
-              this.updateItems();
+                console.info($("body").width());
             },
-            updateItems:function () {
-                var itemswidth=this.screenwidth-this.margin*2;
-                var n=itemswidth/this.rawItemSize;
-                this.row=parseInt(n);                   //能容纳item的数量
-                if(this.row==1){
-                    var leftwidth=itemswidth-(this.row)*this.itemsize;
-                    this.itemsize+=leftwidth;
-                    this.rowgap=32;
-                    this.columngap=0;
-                    this.column=this.items.length;
-                }else if(this.row==0){
-                    var leftwidth=itemswidth-(this.row)*this.itemsize;
-                    this.itemsize=itemswidth;
-                    this.rowgap=32;
-                    this.columngap=0;
-                    this.row=1;
-                    this.column=this.items.length;
+            initItems:function () {
+                this.containerWidth=$(".left-content").width()-this.gridStyle.margin*2;
+                var width=this.containerWidth;
+                var n=width/this.rawItemsize;
+                if(parseInt(n)==1||parseInt(n)==0){
+                    this.gridStyle["--column"]=1;
+                    this.gridStyle["--row"]=this.items.length;
+                    this.gridStyle["--itemsize"]=width;
+                    console.info("n==0||1");
                 }else {
-                    var leftwidth=itemswidth-(this.row)*this.itemsize;
-                    this.rowgap=this.columngap=32;
-                    //把多余的width平分给itemsize
-                    this.itemsize+=(leftwidth-(this.rowgap)*(this.row-1))/this.row;
-                    var m=this.items.length/this.row;
-                    if(m-parseInt(m)<=0.0000001){
-                        this.column=parseInt(m);
-                    }else {
-                        this.column=parseInt(m)+1;
-                    }
+                    this.gridStyle["--column"]=parseInt(n);
+                    this.gridStyle["--row"]=parseInt(this.items.length/parseInt(n))+1;
+                    this.gridStyle["--itemsize"]+=(n-parseInt(n))*this.rawItemsize/parseInt(n);
+                    console.info(n);
                 }
-            }
+            },
         },
     });
 </script>

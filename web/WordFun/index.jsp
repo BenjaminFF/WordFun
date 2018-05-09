@@ -19,25 +19,28 @@
     <script src="vue.js"></script>
 </head>
 <body>
-<div class="navbar">
-    <p class="myTitle"><a href="index.jsp">WordFun</a></p>
-    <div class="nav-button-group">
-        <button class="nav-button">登陆</button>
-        <button class="nav-button">注册</button>
-    </div>
-</div>
-<div class="main-section" id="main">
-    <div class="sidebar" id="sidebar">
-        <div v-for="item in items" class="sidebar-item" v-bind:class="{itemChosen:item.isChosen}"
-             @click="switchItem(item)">
-            <p v-bind:style="{color:item.titleColor}">{{item.title}}</p>
+<div id="index">
+    <div class="navbar">
+        <p class="myTitle"><a href="index.jsp">WordFun</a></p>
+        <div class="nav-button-group">
+            <button class="nav-button" @click="login">登陆</button>
+            <button class="nav-button">注册</button>
         </div>
     </div>
-    <div class="main-content">
-        <iframe v-bind:src="curFrameSrc" frameborder="0"
-                class="main-frame"></iframe>
+    <div class="main-section" id="main">
+        <div class="sidebar" id="sidebar">
+            <div v-for="item in items" class="sidebar-item" v-bind:class="{itemChosen:item.isChosen}"
+                 @click="switchItem(item)">
+                <p v-bind:style="{color:item.titleColor}">{{item.title}}</p>
+            </div>
+        </div>
+        <div class="main-content">
+            <iframe v-bind:src="curFrameSrc" frameborder="0"
+                    class="main-frame"></iframe>
+        </div>
     </div>
 </div>
+
 
 <div class="lg-model" id="lg-dialog" v-if="isShow">
     <div class="lg-dialog">
@@ -122,10 +125,10 @@
                     xmlhttp.send("username="+user.username+"&password="+user.password);
                     xmlhttp.onreadystatechange=function (ev) {
                         if(xmlhttp.readyState==4&&xmlhttp.status==200){
-                            console.info(xmlhttp.responseText);
-                            if(xmlhttp.responseText=="noUser"){
-                                user.namelog="没有该用户";
-                                user.showNameLog=true;
+                                    console.info(xmlhttp.responseText);
+                                    if(xmlhttp.responseText=="noUser"){
+                                        user.namelog="没有该用户";
+                                        user.showNameLog=true;
                             }else{
                                 if(xmlhttp.responseText=="false"){
                                     user.pwdlog="密码错误";
@@ -158,44 +161,45 @@
     });
 
     var mainsection=new Vue({
-       el:"#main",
+       el:"#index",
        data:{
            items:[],
-           curFrameSrc:"WordSet.jsp"
+           curFrameSrc:"WordSet.jsp",
+           dialog:dialog
        },
        created:function () {
            var item1={
                title:"你的单词集",
                iconsrc:"",
-               titleColor:"white",
+               titleColor:"black",
                framesrc:"WordSet.jsp",
-               isChosen:false
+               isChosen:true
            };
            var item2={
                title:"单词矩阵",
                iconsrc:"",
-               titleColor:"white",
+               titleColor:"black",
                framesrc:"WordMatrix.jsp",
                isChosen:false
            };
            var item3={
                title:"吊小人",
                iconsrc:"",
-               titleColor:"white",
+               titleColor:"black",
                framesrc:"HangMan.jsp",
                isChosen:false
            };
            var item4={
                title:"乾坤大挪移",
                iconsrc:"",
-               titleColor:"white",
+               titleColor:"black",
                framesrc:"Scramble.jsp",
                isChosen:false
            };
            var item5={
                title:"单词接龙",
                iconsrc:"",
-               titleColor:"white",
+               titleColor:"black",
                framesrc:"WordChain.jsp",
                isChosen:false
            };
@@ -218,6 +222,9 @@
                item.isChosen=true;
                this.curFrameSrc=item.framesrc;
                console.info(item.framesrc);
+           },
+           login:function () {
+               this.dialog.isShow=true;
            }
        }
     });

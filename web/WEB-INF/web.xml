@@ -22,4 +22,13 @@
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/LoginServlet</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>WordSetServlet</servlet-name>
+        <servlet-class>Test.WordSetServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>WordSetServlet</servlet-name>
+        <url-pattern>/WordSetServlet</url-pattern>
+    </servlet-mapping>
 </web-app>
