@@ -18,6 +18,7 @@
     </script>
     <script src="jquery.js">
     </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.14.1/lodash.min.js"></script>
     <style type="text/css">
         body,html{
             width: 100%;
@@ -59,7 +60,16 @@
             border-bottom: 3px solid green;
         }
 
+        .list{
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            width: 100%;
+            height: fit-content;
+        }
+
         .item-container{
+            position: relative;
             margin-top: 3em;
             display: flex;
             width: 80%;
@@ -95,6 +105,17 @@
         }
         .item-container .textarea:nth-child(2){
             margin-right: 0;
+        }
+
+        .item_delete{
+            width: 1.5em;
+            height: 1.5em;
+            position: absolute;
+            right: 0.5em;
+            align-self: center;
+        }
+        .item_delete:hover{
+            cursor: pointer;
         }
 
         .button-container{
@@ -179,6 +200,11 @@
                 margin-top: 1em;
                 border-bottom-width: 0;
             }
+
+            .item_delete{
+                right: 0.3em;
+                top: 0.3em;
+            }
         }
         .toast{
             position: fixed;
@@ -194,6 +220,19 @@
             justify-content: center;
             text-align: center;
         }
+
+        .list-enter-active, .list-leave-active {
+            transition: all 1s;
+        }
+        .list-enter, .list-leave-to
+            /* .list-leave-active for below version 2.1.8 */ {
+            opacity: 0;
+            transform: translateX(50px);
+        }
+
+        .move{
+            transition: transform 1s;
+        }
     </style>
 </head>
 <body>
@@ -201,12 +240,15 @@
     <div class="title-edit">
         <input type="text" placeholder="title" class="titleinput" v-model="title">
     </div>
-    <div class="item-container" v-for="item in items">
-        <div contenteditable="true" class="textarea" placeholder="word"  @input="bindItem('word',item,$event)"></div>
-        <div contenteditable="true" class="textarea" placeholder="difination" @input="bindItem('explain',item,$event)"></div>
+    <transition-group name="list" class="list" move-class="move">
+    <div class="item-container" v-for="(item,index) in items" v-bind:key="item">
+        <div contenteditable="true" class="textarea" placeholder="word"  @input="bindItem('word',item,$event)" @focus="taFocus(item)" @blur="taBlur(item,$event,index)"></div>
+        <div contenteditable="true" class="textarea" placeholder="difination" @input="bindItem('explain',item,$event)" @focus="taFocus(item)" @blur="taBlur(item,$event,index)"></div>
+        <input type="image" src="/icons/delete.svg" class="item_delete" v-if="item.imgVisibility" v-bind:id="'delete'+index"/>
     </div>
+    </transition-group>
     <div class="button-container">
-        <div class="addItem" @click="addItem($event)">ADD WORDS</div>
+        <div class="addItem" @click="addItem">ADD WORDS</div>
     </div>
     <div class="create" @click="createItems">CREATE</div>
     <div class="toast">{{errorhint}}</div>
@@ -220,31 +262,37 @@
            errorhint:"gg",
            errorHappened:false,
            items:[],
-            title:""
+            title:"",
+            itemsStyle:[]
         },
         created:function () {
             var item1={
                 word:"",
                 explain:"",
+                imgVisibility:false
             };
             var item2={
                 word:"",
-                explain:""
-            }
+                explain:"",
+                imgVisibility:false
+            };
             this.items.push(item1);
+            this.items.push(item2);
         },
         methods:{
-           addItem:function (event) {
+           addItem:function () {
                var item={
                    word:"",
-                   explain:""
+                   explain:"",
+                   imgVisibility:false
                }
                this.items.push(item);
                var scrolltop=$('.addItem').offset().top;
-               console.info();
                if(scrolltop>=$('body').height()-2*$('.button-container').height()){
                    $('body').animate({scrollTop:scrolltop},1000);
                }
+               var index=(this.items.length-1)*2;
+               $(".textarea:eq("+index+")").focus();
            },
            createItems:function () {
                for(var i=0;i<this.items.length;i++){
@@ -252,7 +300,6 @@
                        break;
                    }
                }
-               console.info(i);
                if(this.title==""){
                    $(".titleinput").css("border-bottom","3px solid red");
                    $(".titleinput").focus();
@@ -273,6 +320,9 @@
                    }
                    $('.toast').show().fadeOut(3000);
                }else {
+                   var jsondata=JSON.stringify(this.items);
+                   var title=this.title;
+                   var timestamp=(new Date()).valueOf();
                    $.ajax({
                        type: "POST",
                        url: "/WordSetServlet",
@@ -288,10 +338,6 @@
                        }
                    });
                }
-               var jsondata=JSON.stringify(this.items);
-               var title=this.title;
-               var timestamp=(new Date()).valueOf();
-
            },
            bindItem:function (value,item,event) {
                if(this.title!=""&&this.errorHappened){
@@ -303,8 +349,20 @@
                }else if(value=="explain"){
                    item.explain=event.target.innerHTML;
                }
-           }
-        }
+           },
+            taFocus:function (item) {
+               item.imgVisibility=true;
+            },
+            taBlur:function (item,event,index) {
+               item.imgVisibility=false;
+               var items=this.items;
+                if(event.relatedTarget!=null){
+                    if(event.relatedTarget.id=="delete"+index){
+                        items.splice(index,1);
+                    }
+                }
+            }
+        },
     });
 </script>
 </html>

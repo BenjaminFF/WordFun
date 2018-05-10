@@ -46,7 +46,7 @@
     <div class="lg-dialog">
         <div class="lg-dialog-nav">
             <p>登陆</p>
-            <img src="/icons/delete.svg" @click="dismiss"/>
+            <img src="/icons/cross.svg" @click="dismiss"/>
         </div>
         <form class="lg-dialog-form" method="post">
             <div class="form-item" style="margin-top: 2em">
