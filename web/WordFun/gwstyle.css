@@ -17,6 +17,7 @@ body,div,p{
 }
 
 .navbar{
+    position: relative;
     display: flex;
     flex: 1.1 0 0;
     background: green;

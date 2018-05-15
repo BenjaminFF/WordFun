@@ -18,11 +18,86 @@
     <link href="gwstyle.css" type="text/css" rel="stylesheet">
     <script src="vue.js"></script>
     <script src="jquery.js"></script>
+    <style>
+        .title{
+            display: flex;
+            font-size: 2em;
+            font-family: "Verdana";
+            justify-content: center;
+            align-items: center;
+            margin-left: 2em;
+        }
+        .title a{
+            text-decoration: none;
+            color: white;
+        }
+        .usertitle{
+            width: fit-content;
+            height: 100%;
+            position: absolute;
+            display: flex;
+            right: 10em;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            color: white;
+        }
+        .usertitle:hover{
+            -webkit-filter: brightness(90%);
+        }
+        .usertitle p{
+            font-size: 1.2em;
+            font-family: "Verdana";
+        }
+        .usertitle img{
+            width: 1em;
+            height: 1em;
+            margin-left: 0.3em;
+        }
+
+        .floatmenu{
+            width: 10em;
+            height: 10em;
+            position: absolute;
+            top: 100%;
+            margin-top: -1em;
+            right: 10em;
+            background-color: transparent;
+            display: flex;
+            flex-direction: column;
+            z-index: 5;
+        }
+        .triangle{
+            width: 0em;
+            height: 0em;
+            border-left: 0.7em solid transparent;
+            border-right: 0.7em solid transparent;
+            border-bottom: 1em solid white;
+            margin-left: 8em;
+            z-index: 5;
+        }
+        .menuItems{
+            width: 100%;
+            height: 9em;
+            background-color: white;
+            box-shadow: -5px 5px 10px lightgray,
+            5px 5px 10px lightgray,
+            0 5px 10px lightgray;
+        }
+    </style>
 </head>
 <body>
 <div id="index">
     <div class="navbar">
-        <p class="myTitle"><a href="client.jsp">WordFun</a></p>
+        <p class="title"><a href="client.jsp">WordFun</a></p>
+        <div class="usertitle">
+            <p>{{username}}</p>
+            <img src="/icons/down.svg"/>
+        </div>
+        <div class="floatmenu">
+            <div class="triangle"></div>
+            <div class="menuItems"></div>
+        </div>
     </div>
     <div class="main-section" id="main">
         <div class="sidebar" id="sidebar">
@@ -42,6 +117,7 @@
     var mainsection=new Vue({
        el:"#index",
        data:{
+           username:"",
            items:[],
            curFrameSrc:"WordSet.jsp",
        },
@@ -86,6 +162,25 @@
            this.items.push(item3);
            this.items.push(item4);
            this.items.push(item5);
+           var _self=this;
+           $.ajax({
+               type: "POST",
+               url: "/ClientServlet",
+               error:function () {
+                   console.info("error");
+               },
+               success:function (data) {
+                   console.info(data);
+                   if(data!=""){
+                       var data=JSON.parse(data);
+                       if(data.Status=="true"){
+                           _self.username=data.username;
+                       }else {
+                           window.location.href=data.loginurl;
+                       }
+                   }
+               }
+           });
        },
        methods:{
            switchItem:function (item) {
@@ -99,7 +194,6 @@
                }
                item.isChosen=true;
                this.curFrameSrc=item.framesrc;
-               console.info(item.framesrc);
            },
        }
     });

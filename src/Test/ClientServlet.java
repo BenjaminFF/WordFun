@@ -39,12 +39,14 @@ public class ClientServlet extends HttpServlet {
             }
             try {
                 if(username==null){
+                    jsonObject.put("loginurl","index.jsp");
                     jsonObject.put("Status", "false");
                 }else if(DbUtil.queryUser(username).equals(password)){
                     jsonObject.put("Status", "true");
                     jsonObject.put("username",username);
                     DbUtil.getTablesByDB(username);
                 }else {
+                    jsonObject.put("loginurl","index.jsp");
                     jsonObject.put("Status", "false");
                 }
                 resp.getWriter().write(jsonObject.toString());

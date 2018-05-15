@@ -126,7 +126,7 @@
         el:"#WordSet",
         data:{
             items:[],
-            username:"Default",
+            username:"",
             containerWidth:-1,
             gridStyle:{
                 '--row':3,
