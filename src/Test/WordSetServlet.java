@@ -15,7 +15,6 @@ import java.util.Map;
 
 public class WordSetServlet extends HttpServlet{
 
-    private HashMap<String,String> WordSet=new HashMap<>();
     @Override
     public void init() throws ServletException {
 
@@ -32,23 +31,23 @@ public class WordSetServlet extends HttpServlet{
         String userdata=req.getParameter("mydata");
         String title=req.getParameter("title");
         String timestamp=req.getParameter("timestamp");
+
         try {
             JSONArray jsonArray=new JSONArray(userdata);
-            for(int i=0;i<jsonArray.length();i++){
-                JSONObject jsonObject=jsonArray.getJSONObject(i);
-                String word=jsonObject.getString("word");
-                String explain=jsonObject.getString("explain");
-                WordSet.put(word,explain);
-
-                Iterator iterator=WordSet.entrySet().iterator();
-                while (iterator.hasNext()){
-                    Map.Entry entry=(Map.Entry)iterator.next();
-                    String myword=(String)entry.getKey();
-                    String myexplain=(String)entry.getValue();
-                    System.out.println(myword+":"+myexplain);
+            StringBuilder insertSql=new StringBuilder();
+            insertSql.append("insert into "+title+"(myword,myexplain) Values");
+            for(int i=0;i<jsonArray.length();i++) {
+                JSONObject jsonObject = jsonArray.getJSONObject(i);
+                String word = jsonObject.getString("word");
+                String explain = jsonObject.getString("explain");
+                if (i == jsonArray.length() - 1) {
+                    insertSql.append("('" + word + "','" + explain + "');");
+                } else {
+                    insertSql.append("('" + word + "','" + explain + "'),");
                 }
-                WordSet.clear();
+
             }
+            DbUtil.CreateAndInsert(title,insertSql.toString());
         }catch (Exception e){
             e.printStackTrace();
         }

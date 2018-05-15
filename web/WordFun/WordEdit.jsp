@@ -230,8 +230,37 @@
             transform: translateX(50px);
         }
 
-        .move{
-            transition: transform 1s;
+        .waiting_model{
+            width: 100%;
+            height: 100%;
+            background-color: transparent;
+            position: fixed;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .waiting-container{
+            border-radius: 0.5em;
+            width: 5em;
+            height: 5em;
+            position: absolute;
+            animation: fade 1.2s infinite ease-in-out;
+        }
+
+        .circle{
+            position: relative;
+            width: 0.8em;
+            height: 0.8em;
+            margin: auto;
+            left: 0;right: 0;
+            background-color: #919191;
+            border-radius: 100%;
+        }
+
+        @keyframes fade {
+            0%, 39%, 100% { opacity: 0; }
+            40% { opacity: 1; }
         }
     </style>
 </head>
@@ -240,7 +269,7 @@
     <div class="title-edit">
         <input type="text" placeholder="title" class="titleinput" v-model="title">
     </div>
-    <transition-group name="list" class="list" move-class="move">
+    <transition-group name="list" class="list">
     <div class="item-container" v-for="(item,index) in items" v-bind:key="item">
         <div contenteditable="true" class="textarea" placeholder="word"  @input="bindItem('word',item,$event)" @focus="taFocus(item)" @blur="taBlur(item,$event,index)"></div>
         <div contenteditable="true" class="textarea" placeholder="difination" @input="bindItem('explain',item,$event)" @focus="taFocus(item)" @blur="taBlur(item,$event,index)"></div>
@@ -252,20 +281,34 @@
     </div>
     <div class="create" @click="createItems">CREATE</div>
     <div class="toast">{{errorhint}}</div>
+    <div class="waiting_model" v-if="isCreating">
+        <div class="waiting-container" v-for="tfStyle in tfStyles"
+             v-bind:style="tfStyle">
+            <div class="circle"></div>
+        </div>
+    </div>
 </div>
 </body>
 <script>
     $(".toast").hide();
-    var vue=new Vue({
+    var WordEdit=new Vue({
        el:"#wordEdit",
         data:{
+           isCreating:false,
            errorhint:"gg",
            errorHappened:false,
            items:[],
             title:"",
-            itemsStyle:[]
+            itemsStyle:[],
+            tfStyles:[]
         },
         created:function () {
+           for(var i=0;i<12;i++){
+               this.tfStyles[i]={
+                   transform:'rotate('+i*30+'deg)',
+                   'animation-delay':i*0.1+'s'
+               }
+           }
             var item1={
                 word:"",
                 explain:"",
@@ -296,17 +339,22 @@
            },
            createItems:function () {
                for(var i=0;i<this.items.length;i++){
-                   if(this.items[i].word==""||this.items[i].explain==""){
+                   if(this.items[i].word==""||this.items[i].explain==""){   //定位到第i行没有填写
                        break;
                    }
                }
+
                if(this.title==""){
                    $(".titleinput").css("border-bottom","3px solid red");
                    $(".titleinput").focus();
                    this.errorhint="title cannot be empty";
                    $('.toast').show().fadeOut(3000);
                    this.errorHappened=true;
-               }else if(i!=this.items.length){      //有item项的word或explain为空
+               }else if(this.items.length<2){
+                   this.errorhint="must have two rows";
+                   $('.toast').show().fadeOut(3000);
+               }
+               else if(i!=this.items.length){      //有item项的word或explain为空
                    if(this.items[i].word==""){
                        var index=i*2;
                        $(".textarea:eq("+index+")").focus();
@@ -323,20 +371,30 @@
                    var jsondata=JSON.stringify(this.items);
                    var title=this.title;
                    var timestamp=(new Date()).valueOf();
+                   var el=this;
+
+                   title=title.replace(/^\s+/,"");
+                   var newTitle=title.replace(/\s+/g,"_");
+                   console.info(newTitle);
                    $.ajax({
                        type: "POST",
                        url: "/WordSetServlet",
                        data: {mydata:jsondata,
-                           title:title,
+                           title:newTitle,
                            timestamp:timestamp
+                       },
+                       beforeSend:function () {
+                           el.isCreating=true;
                        },
                        error:function () {
                            console.info("error");
                        },
                        success:function () {
                            console.info("success");
+                           window.history.back(-1);
                        }
                    });
+
                }
            },
            bindItem:function (value,item,event) {

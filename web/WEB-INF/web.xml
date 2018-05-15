@@ -31,4 +31,14 @@
         <servlet-name>WordSetServlet</servlet-name>
         <url-pattern>/WordSetServlet</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ClientServlet</servlet-name>
+        <servlet-class>Test.ClientServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>ClientServlet</servlet-name>
+        <url-pattern>/ClientServlet</url-pattern>
+    </servlet-mapping>
 </web-app>

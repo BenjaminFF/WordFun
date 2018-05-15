@@ -32,6 +32,27 @@
             width: 100%;
             height: 10em;
             box-shadow: 0 0 1em gray;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+        .toolbar p{
+            font-size: 3em;
+            margin-left: 1em;
+        }
+
+        .create_set{
+            position: absolute;
+            width: 2em;
+            height: 2em;
+            background-color: #00b3ee;
+            right: 5%;
+            bottom: -2em;
+            padding: 1em;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 5;
+            box-shadow: 0 0 5px gray;
         }
 
         .main-content{
@@ -78,12 +99,17 @@
             .right-content{
                 width: 0%;
             }
+            .create_set{
+                right: 1em;
+            }
         }
     </style>
 </head>
 <body>
    <div id="WordSet">
-       <div class="toolbar"></div>
+       <div class="toolbar"><p>{{username}}</p>
+       <img class="create_set" src="/icons/add.svg" @click="createItem"/>
+       </div>
        <div class="main-content">
            <div class="left-content">
                <div class="item-container"  v-bind:style="gridStyle">
@@ -91,7 +117,6 @@
                    </div>
                </div>
            </div>
-
            <div class="right-content"></div>
        </div>
    </div>
@@ -101,6 +126,7 @@
         el:"#WordSet",
         data:{
             items:[],
+            username:"Default",
             containerWidth:-1,
             gridStyle:{
                 '--row':3,
@@ -109,9 +135,6 @@
                 'margin':32,
             },
             rawItemsize:16*10,
-            userdata:{
-
-            }
         },
         mounted:function () {
             window.addEventListener('resize', this.handleResize);
@@ -119,41 +142,23 @@
             console.info(this.containerWidth);
         },
         created:function () {
-            var item1={
-                title:"Holly",
-                count:12,
-                date:"2018年4月12日",
-            };
-            var item2={
-                title:"Holly",
-                count:12,
-                date:"2018年4月12日",
-            };
-            var item3={
-                title:"Holly",
-                count:12,
-                date:"2018年4月12日",
-            };
-            var item4={
-                title:"Holly",
-                count:12,
-                date:"2018年4月12日",
-            };
-            var item5={
-                title:"Holly",
-                count:12,
-                date:"2018年4月12日",
-            };
-            this.items.push(item1);
-            this.items.push(item2);
-            this.items.push(item3);
-            this.items.push(item4);
-            this.items.push(item5);
-            this.items.push(item1);
-            this.items.push(item2);
-            this.items.push(item3);
-            this.items.push(item4);
-            this.items.push(item5);
+            var _self=this;
+            $.ajax({
+                type: "POST",
+                url: "/ClientServlet",
+                error:function () {
+                    console.info("error");
+                },
+                success:function (data) {
+                    console.info(data);
+                    if(data!=""){
+                        var data=JSON.parse(data);
+                        if(data.Status=="true"){
+                            _self.username=data.username;
+                        }
+                    }
+                }
+            });
         },
         beforeDestroy: function () {
             window.removeEventListener('resize', this.handleResize)
@@ -178,6 +183,9 @@
                     console.info(n);
                 }
             },
+            createItem:function () {
+                window.location.href="/WordFun/WordEdit.jsp";
+            }
         },
     });
 </script>
